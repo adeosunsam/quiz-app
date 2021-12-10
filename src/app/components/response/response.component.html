@@ -1,5 +1,5 @@
 <div class="info_box">
-  <div class="info-title justify-content-center">Congratulation!! <br>Below is your result:</div>
+  <div class="info-title justify-content-center">Survey completed <br>Below is your result:</div>
   <div class="info-list">
       <div class="d-flex info justify-content-between" *ngFor="let item of response">
         <p>Your Choice: {{ item.choice }}</p>
@@ -9,16 +9,3 @@
       <button routerLink="/" routerLinkActive="router-link-active"  class="restart">Restart</button>
   </div>
 </div>
-
-
-
-
-<!-- <div class="d-flex justify-content-center">
-  <div class="result text-center col-md-6 card card-body">
-    <h3>Congratulation!! <br>you have completed the quiz. <br>Below is your result:</h3>
-    <div *ngFor="let item of response" class="d-flex justify-content-around py-3">
-      <p>Your Choice: {{ item.choice }}</p>
-      <p>Final Answer: {{ item.answer }}</p>
-    </div>
-  </div>
-</div> -->
