@@ -1,0 +1,16 @@
+<div [ngStyle]="{'width': '70%'}" class="container bg-light py-5 m-auto">
+  <h1 class="display-5 fw-bold">Welcome to survey App</h1>
+  <p class="col-md-8 fs-4">This survey contains total {{ totalQuestion }} questions.</p>
+  <h4>Rules:</h4>
+  <ol>
+    <li>Once you've moved to the next question, you cant go back</li>
+    <li>This survey questions are not time based</li>
+    <li>Refreshing the page will reset the survey</li>
+  </ol>
+  <h1 [ngStyle]="{'fontFamily': 'cursive', 'textAlign': 'center'}">All the best</h1>
+  <div class="col-md-4 my-3">
+    <label for="">Enter your name:</label>
+    <input #name type="text" class="form-control"> 
+  </div>
+  <button (click)="startQuiz()" [routerLink]="['/question']" routerLinkActive="router-link-active"  class="btn btn-primary btn-lg">Start the Survey</button>
+</div>

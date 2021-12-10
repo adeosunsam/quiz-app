@@ -1,0 +1,45 @@
+<div class="container mt-5">
+  <div class="card m-auto" [ngStyle]="{'width': '60%'}">
+    <div class="d-flex justify-content-between p-3">
+      <div class="image">
+        <img src="" alt="">
+      </div>
+      <div class="quiz-header">
+        <h4 [ngStyle]="{'fontFamily': 'cursive'}">{{ questions[currentQuestion]?.category }} Survey</h4>
+        <span [ngStyle]="{'fontStyle': 'italic'}">Welcome {{name}}</span>
+      </div>
+    </div>
+    <div class="d-flex justify-content-around py-3">
+
+      <div class="score">
+        <h6 [ngStyle]="{'fontStyle': 'italic'}">Difficulty: {{ questions[currentQuestion]?.difficulty }}</h6>
+      </div>
+
+      <div class="question-remain">
+        <span [ngStyle]="{'fontStyle': 'italic'}">Question {{currentQuestion + 1}} of {{questions.length}}</span>
+      </div>
+    </div>
+    <div class="question">
+      <div class="card">
+        <h5>{{ questions[currentQuestion]?.question }}</h5>
+      </div>
+    </div>
+    <div class="options">
+      <ol *ngFor="let option of questions[currentQuestion]?.incorrect_answers">
+        <li [class.text-white]="selectedOption === option">
+          <div (click)="onSelect(option)"
+            [class.bg-secondary]="selectedOption === option" class="card">
+            {{ option }}
+          </div>
+        </li>
+      </ol>
+    </div>
+    <div *ngIf="questions.length !== currentQuestion + 1" class="d-flex justify-content-end ">
+      <button (click)="nextQuestion(questions[currentQuestion].correct_answer)" class="btn btn-primary btn-lg">Next Question</button>
+    </div>
+
+    <div *ngIf="questions.length === currentQuestion + 1" class="d-flex justify-content-end ">
+      <button (click)="onSubmit(questions[currentQuestion].correct_answer)" class="btn btn-success btn-lg">Submit</button>
+    </div>
+  </div>
+</div>
